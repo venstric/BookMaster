@@ -16,15 +16,18 @@
         </Grid.RowDefinitions>
         <Menu>
             <MenuItem Header="Файл">
-                <MenuItem Header="Вход в ситему"/>
-                <MenuItem Header="Выход из ситемы"/>
-                <MenuItem Header="Закрыть приложения"/>
+                <MenuItem Name="LoginMi"  Header="Вход в ситему" Click="LoginMi_Click"/>
+                <MenuItem Header="Выход из ситемы" Click="MenuItem_Click"/>
+                <MenuItem Header="Закрыть приложения" Click="MenuItem_Click_1" />
             </MenuItem>
-            <MenuItem Header="Библиотека">
-            <MenuItem Header="Просмоотр катологов"/>
-            <MenuItem Header="Управления читателями"/>
-            <MenuItem Header="Управления абониментом"/>
-            <MenuItem Header="Отчёты"/>
+            <MenuItem Name="LibraryMi" Header="Библиотека">
+                <MenuItem Name="BrowseCatalogMi" Header="Просмоотр катологов" Click="BrowseCatalogMi_Click"/>
+
+                <MenuItem Name="ManageCustomersMi" Header="Управления читателями" Click="ManageCustomersMi_Click"/>
+
+                <MenuItem Name="CirculationMi" Header="Управления абониментом" Click="CirculationMi_Click"/>
+
+                <MenuItem Name="ReportsMi" Header="Отчёты" Click="ReportsMi_Click"/>
             </MenuItem>
 
         </Menu>

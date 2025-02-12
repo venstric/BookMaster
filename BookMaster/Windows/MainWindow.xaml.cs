@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookMaster.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,49 @@ namespace BookMaster
         public MainWindow()
         {
             InitializeComponent();
+
+            LogoutMi.Visibility = Visibility.Collapsed;
+            LibraryMi.Visibility = Visibility.Collapsed;
+        }
+
+        private void LoginMi_Click(object sender, RoutedEventArgs e)
+        {
+            //Для реализации оконной навигации нужно:
+            //1) Сщдать экземпляра
+            LoginWindow loginWindow = new LoginWindow();
+
+            //2) У экземпляр окно, которое требуется открыть
+            loginWindow.ShowDialog();
+        }
+
+        private void CirculationMi_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ManageCustomersMi_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BrowseCatalogMi_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ReportsMi_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
