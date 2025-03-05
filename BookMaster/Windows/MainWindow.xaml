@@ -32,6 +32,9 @@
 
         </Menu>
         <Frame Name="MainFrame" Grid.Row="2"/>
+        <Image Source="/Resources/Images/logo.png"/>
+
+
 
     </Grid>
 </Window>
