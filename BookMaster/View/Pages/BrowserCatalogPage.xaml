@@ -5,10 +5,63 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BookMaster.View.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="BrowserCatalogPage">
+      d:DesignHeight="760" d:DesignWidth="1500"
+      Title="Просмотр каталога страниц" Loaded="Page_Loaded"> 
 
-    <Grid>
-        
-    </Grid>
+    <Grid Background="white">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="1"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <!--region Пароль поиска-->
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Column="3" Source="/Resources/Images/logo.png"/>
+                <TextBlock Grid.Row="2" Text="Название"/>
+                <TextBlock Grid.Row="4" Text="Автор"/>
+                <TextBlock Grid.Row="6" Text="Жанр"/>
+
+                <TextBlock Grid.Column="3" Grid.Row="2"/>
+                <TextBlock Grid.Column="3" Grid.Row="4"/>
+                <TextBlock Grid.Column="3" Grid.Row="6"/>
+
+                <Button Grid.Column="3" Grid.Row="8" Content="Найти"
+            </Grid>
+                    <!--endregion-->
+                    <!--region Результат поиска-->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="5"/>
+                        </Grid.RowDefinitions>
+
+                        <ListView Name="BookAuthorLv">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Название книги" DisplayMemberBinding="{Binding Book.Title}"/>
+                                    <GridViewColumn Header="Имя автора" DisplayMemberBinding="{Binding Author.Name}"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+              </Grid>
+                    <!--#endregion-->
+      </Grid>
 </Page>

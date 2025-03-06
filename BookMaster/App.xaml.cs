@@ -13,5 +13,7 @@ namespace BookMaster
     /// </summary>
     public partial class App : Application
     {
+        //Контекст данных, который хранит в себе все таблицы БД.
+        public static BookmasterEntities context = new BookmasterEntities();
     }
 }

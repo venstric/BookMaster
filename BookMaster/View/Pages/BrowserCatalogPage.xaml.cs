@@ -23,6 +23,14 @@ namespace BookMaster.View.Pages
         public BrowserCatalogPage()
         {
             InitializeComponent();
+
+
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Загружаем данные из таблицы BookAuthor в список ListView
+            BookAuthorLv.ItemsSource = App.context.BookAuthor.ToList;
         }
     }
 }
