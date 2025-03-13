@@ -122,7 +122,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BookmasterEntities.cs" />
     <Compile Include="Model\Administrator.cs">
       <DependentUpon>BookmasterModel.tt</DependentUpon>
     </Compile>

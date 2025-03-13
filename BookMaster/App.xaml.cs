@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookMaster.Model;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -14,6 +15,6 @@ namespace BookMaster
     public partial class App : Application
     {
         //Контекст данных, который хранит в себе все таблицы БД.
-        public static BookmasterEntities context = new BookmasterEntities();
+        public static Entities context = new Entities();
     }
 }

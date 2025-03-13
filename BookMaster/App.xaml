@@ -6,9 +6,15 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source=""/>
+                <ResourceDictionary Source="\styles\buttonstyle.xaml"/>
+                <ResourceDictionary Source="\styles\combobox.xaml"/>
+                <ResourceDictionary Source="\styles\gridsplitterstyle.xaml"/>
+                <ResourceDictionary Source="\styles\menustyle.xaml"/>
+                <ResourceDictionary Source="\styles\passwordboxstyle.xaml"/>
+                <ResourceDictionary Source="\styles\tabcontrolstyle.xaml"/>
+                <ResourceDictionary Source="\styles\textblockstyle.xaml"/>
+                <ResourceDictionary Source="\styles\textboxstyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-         
     </Application.Resources>
-</Application>
+</Application> 

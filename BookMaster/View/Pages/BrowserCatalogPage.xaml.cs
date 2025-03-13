@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookMaster.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,17 +21,24 @@ namespace BookMaster.View.Pages
     /// </summary>
     public partial class BrowserCatalogPage : Page
     {
+        List<BookAuthor> _bookAuthors = App.context.BookAuthor.ToList();
         public BrowserCatalogPage()
         {
             InitializeComponent();
-
-
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             // Загружаем данные из таблицы BookAuthor в список ListView
-            BookAuthorLv.ItemsSource = App.context.BookAuthor.ToList;
+            BookAuthorLv.ItemsSource = _bookAuthors;
+        }
+
+        private void SearchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //Реализация алгоритма поиска
+            BookAuthorLv.ItemsSource = _bookAuthors.Where(bookAuthor =>
+            bookAuthor.Book.Title.ToLower().Contains(SearchByBookTitleTb.Text.ToLower()) &&
+            bookAuthor.Author.Name.ToLower().Contains(SearchByAuthorNameTb.Text.ToLower()));
         }
     }
 }
