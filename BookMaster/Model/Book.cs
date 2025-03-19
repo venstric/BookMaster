@@ -27,6 +27,14 @@ namespace BookMaster.Model
         public string Subtitle { get; set; }
         public Nullable<System.DateTime> FirstPublishDate { get; set; }
         public string Description { get; set; }
+
+        public string Authors
+        {
+            get
+            {
+                return string.Join(", ", BookAuthor.Select(bookAuthor => bookAuthor.Author.Name));
+            }
+        }
     
         public virtual ICollection<BookAuthor> BookAuthor { get; set; }
         public virtual ICollection<BookCover> BookCover { get; set; }

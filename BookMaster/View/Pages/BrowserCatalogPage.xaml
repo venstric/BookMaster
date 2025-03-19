@@ -65,15 +65,36 @@
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="5"/>
                 </Grid.RowDefinitions>
+                
 
                 <ListView Name="BookAuthorLv">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Название книги" DisplayMemberBinding="{Binding}"/>
-                            <GridViewColumn Header="Имя авторов" DisplayMemberBinding="{Binding}"/>
+                            <GridViewColumn Header="Название книги" DisplayMemberBinding="{Binding Title}"/>
+                            <GridViewColumn Header="Имя авторов" DisplayMemberBinding="{Binding Authors}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Страница"/>
+                    <Button Name="PreviousBookBtn" Grid.Column="2" Content="&lt;"
+                            Click="PreviosBookBtn_Click"/>
+                    <TextBox Name="CurrentPageTb" Grid.Column="4" 
+                             HorizontalAlignment="Center" 
+                             TextChanged="CurrentPageTb_TextChanged"/>
+                    <Button Name="NextBookBtn" Grid.Column="6" Content="&gt;"
+                            Click="NextBookBtn_Click"/>
+                    <TextBlock Name="TotalPagesTbl" Grid.Column="8" Text="of 4"/>
+                    <TextBlock Name="TotalPagesTbl" Grid.Column="10" Text="153 Books found"/>
+                </Grid>
             </Grid>
             <!--#endregion-->
         </Grid>

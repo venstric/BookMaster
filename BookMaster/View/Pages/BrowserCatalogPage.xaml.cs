@@ -21,7 +21,7 @@ namespace BookMaster.View.Pages
     /// </summary>
     public partial class BrowserCatalogPage : Page
     {
-        List<BookAuthor> _bookAuthors = App.context.BookAuthor.ToList();
+        List<Book> _books = App.context.Book.ToList();
         public BrowserCatalogPage()
         {
             InitializeComponent();
@@ -30,15 +30,15 @@ namespace BookMaster.View.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             // Загружаем данные из таблицы BookAuthor в список ListView
-            BookAuthorLv.ItemsSource = _bookAuthors;
+            BookAuthorLv.ItemsSource = _books;
         }
 
         private void SearchBtn_Click(object sender, RoutedEventArgs e)
         {
             //Реализация алгоритма поиска
-            BookAuthorLv.ItemsSource = _bookAuthors.Where(bookAuthor =>
-            bookAuthor.Book.Title.ToLower().Contains(SearchByBookTitleTb.Text.ToLower()) &&
-            bookAuthor.Author.Name.ToLower().Contains(SearchByAuthorNameTb.Text.ToLower()));
+            BookAuthorLv.ItemsSource = _books.Where(book =>
+           book.Title.ToLower().Contains(SearchByBookTitleTb.Text.ToLower()) &&
+           book.Authors.Name.ToLower().Contains(SearchByAuthorNameTb.Text.ToLower()));
         }
     }
 }
