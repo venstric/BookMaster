@@ -1,4 +1,5 @@
-﻿using BookMaster.Model;
+﻿using BookMaster.AppData;
+using BookMaster.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace BookMaster.View.Pages
     public partial class BrowserCatalogPage : Page
     {
         List<Book> _books = App.context.Book.ToList();
+        PaginationService _bookPagination;
         public BrowserCatalogPage()
         {
             InitializeComponent();
@@ -35,10 +37,26 @@ namespace BookMaster.View.Pages
 
         private void SearchBtn_Click(object sender, RoutedEventArgs e)
         {
-            //Реализация алгоритма поиска
-            BookAuthorLv.ItemsSource = _books.Where(book =>
-           book.Title.ToLower().Contains(SearchByBookTitleTb.Text.ToLower()) &&
-           book.Authors.Name.ToLower().Contains(SearchByAuthorNameTb.Text.ToLower()));
+            SearchResultsGrid.Visibility = Visibility.Visible;
+
+            if (string.IsNullOrEmpty(SearchByBookTitleTb.Text) &&
+                string.IsNullOrEmpty(SearchByAuthorNameTb.Text) &&
+                string.IsNullOrEmpty(SearchByBookSubjectTb.Text))
+            {
+                _bookPagination = new PaginationService(_books);
+            }
+            else
+            {
+                //Реализация алгоритма поиска
+                BookAuthorLv.ItemsSource = _books.Where(book =>
+               book.Title.ToLower().Contains(SearchByBookTitleTb.Text.ToLower()) &&
+               book.Authors.Name.ToLower().Contains(SearchByAuthorNameTb.Text.ToLower()));
+            }
+
+            //Загружаем данные из таблицы BookAuthors  в список ListView
+            BookAuthorLv.ItemsSource = _books;
+
+            
         }
     }
 }

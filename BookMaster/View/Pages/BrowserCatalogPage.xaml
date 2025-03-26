@@ -43,14 +43,14 @@
 
             <TextBox Name="SearchByBookTitleTb" Grid.Column="3" Grid.Row="2"/>
             <TextBox Name="SearchByAuthorNameTb" Grid.Column="3" Grid.Row="4"/>
-            <TextBox Grid.Column="3" Grid.Row="6"/>
+            <TextBox Name="SearchByBookSubjectTb" Grid.Column="3" Grid.Row="6"/>
 
             <Button Grid.Column="3" Grid.Row="8" Content="Найти"/>
 
         </Grid>
         <!--#endregion-->
 
-        <Grid Grid.Column="2">
+        <Grid Name="SearchResultsGrid" Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="15"/>
