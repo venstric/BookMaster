@@ -86,14 +86,14 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="Страница"/>
                     <Button Name="PreviousBookBtn" Grid.Column="2" Content="&lt;"
-                            Click="PreviosBookBtn_Click"/>
+                            Click="PreviousBookBtn_Click"/>
                     <TextBox Name="CurrentPageTb" Grid.Column="4" 
                              HorizontalAlignment="Center" 
                              TextChanged="CurrentPageTb_TextChanged"/>
                     <Button Name="NextBookBtn" Grid.Column="6" Content="&gt;"
                             Click="NextBookBtn_Click"/>
-                    <TextBlock Name="TotalPagesTbl" Grid.Column="8" Text="of 4"/>
-                    <TextBlock Name="TotalPagesTbl" Grid.Column="10" Text="153 Books found"/>
+                    <TextBlock Name="TotalPagesTbl" Grid.Column="8" Text= "{Binding TotalPages,StringFormat= из{0}}"/>
+                    <TextBlock Name="TotalBooksTbl" Grid.Column="12" Text= "{Binding TotalBooks,StringFormat= Книг найдино: {0}}"/>
                 </Grid>
             </Grid>
             <!--#endregion-->

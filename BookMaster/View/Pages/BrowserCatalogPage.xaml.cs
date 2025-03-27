@@ -24,6 +24,7 @@ namespace BookMaster.View.Pages
     {
         List<Book> _books = App.context.Book.ToList();
         PaginationService _bookPagination;
+
         public BrowserCatalogPage()
         {
             InitializeComponent();
@@ -31,8 +32,7 @@ namespace BookMaster.View.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            // Загружаем данные из таблицы BookAuthor в список ListView
-            BookAuthorLv.ItemsSource = _books;
+
         }
 
         private void SearchBtn_Click(object sender, RoutedEventArgs e)
@@ -47,16 +47,34 @@ namespace BookMaster.View.Pages
             }
             else
             {
+                List<Book> searchResults = _books.Where(book => book.Title.ToLower().Contains(SearchByBookTitleTb.Text.ToLower()) &&
+                book.Authors.ToLower().Contains(SearchByAuthorNameTb.Text.ToLower())).ToList();
                 //Реализация алгоритма поиска
-                BookAuthorLv.ItemsSource = _books.Where(book =>
-               book.Title.ToLower().Contains(SearchByBookTitleTb.Text.ToLower()) &&
-               book.Authors.Name.ToLower().Contains(SearchByAuthorNameTb.Text.ToLower()));
+                _bookPagination = new PaginationService(searchResults);
+
+                //Загружаем данные из таблицы BookAuthors  в список ListView
+                BookAuthorLv.ItemsSource = _bookPagination.CurrentPageOfBooks;
+                TotalPagesTbl.DataContext = TotalBooksTbl.DataContext = _bookPagination;
+
+
+
+
             }
+        }
 
-            //Загружаем данные из таблицы BookAuthors  в список ListView
-            BookAuthorLv.ItemsSource = _books;
+        private void PreviousBookBtn_Click(object sender, RoutedEventArgs e)
+        {
 
-            
+        }
+
+        private void CurrentPageTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void NextBookBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

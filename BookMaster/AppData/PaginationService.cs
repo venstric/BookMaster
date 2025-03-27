@@ -12,8 +12,10 @@ namespace BookMaster.AppData
     {
         private const int PAGE_SIZE = 50;
         private readonly List<Book> _books;
-        private interface _currentPageIndex = 0;
-        private interface _currentPageNumber = 1;
+        private int _currentPageIndex = 0;
+        private int _currentPageNumber = 1;
+
+
         public int BooksCount => _books.Count;
         public int TotalPages => (BooksCount + PAGE_SIZE - 1) / PAGE_SIZE;
         public List<Book> CurrentPageOfBooks => _books.Skip(_currentPageIndex * 
