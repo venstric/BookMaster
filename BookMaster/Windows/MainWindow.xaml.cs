@@ -1,4 +1,5 @@
-﻿using BookMaster.Windows;
+﻿using BookMaster.View.Pages;
+using BookMaster.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,12 +47,12 @@ namespace BookMaster
 
         private void ManageCustomersMi_Click(object sender, RoutedEventArgs e)
         {
-
+           
         }
 
         private void BrowseCatalogMi_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new BrowserCatalogPage());
         }
 
         private void ReportsMi_Click(object sender, RoutedEventArgs e)

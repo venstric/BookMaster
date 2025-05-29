@@ -45,7 +45,7 @@
             <TextBox Name="SearchByAuthorNameTb" Grid.Column="3" Grid.Row="4"/>
             <TextBox Name="SearchByBookSubjectTb" Grid.Column="3" Grid.Row="6"/>
 
-            <Button Grid.Column="3" Grid.Row="8" Content="Найти"/>
+            <Button Grid.Column="3" Grid.Row="8" Content="Найти" Click="Button_Click"/>
 
         </Grid>
         <!--#endregion-->
@@ -97,6 +97,56 @@
                 </Grid>
             </Grid>
             <!--#endregion-->
+
+
+            <!--#region Разделитель-->
+            
+            <!--#endregion-->
+
+            <!--#region Подробная информация о книге-->
+
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                  
+                    
+                    
+                    
+                </Grid.RowDefinitions>
+                <TextBlock FontSize="30" FontWeight="SemiBold" Text="Название"/>
+                <TextBlock Grid.Row="2" Text="Дополнительное название"/>
+                <TextBlock Grid.Row="4 ">
+                    <Hyperlink Name="AuthorsDetailsHl">
+                        <TextBlock Text="Авторы"/>
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock Grid.Row="6" Text="Дата первой публикации"/>
+                <TextBlock Grid.Row="8" Text="Описание" FontWeight="SemiBold"/>
+                <ScrollViewer Grid.Row="10" VerticalScrollBarVisibility="Auto">
+                    <TextBlock Text="Описание" VerticalAlignment="Top" />
+                </ScrollViewer>
+                <TextBlock Grid.Row="12" Text="Жанры" FontWeight="SemiBold"/>
+                <TextBlock Grid.Row="14" Text="Жанры"/>
+            </Grid>
+                <!--#endregion-->
+
+
+
+
         </Grid>
     </Grid>
 </Page> 
