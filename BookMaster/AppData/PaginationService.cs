@@ -8,7 +8,7 @@ namespace BookMaster.AppData
 {
     public class PaginationService<T>
     {
-        private const int _pageSize;
+        private readonly int _pageSize;
         private readonly List<T> _items;
         private int _currentPageIndex = 0;
         private int _currentPageNumber = 1;
