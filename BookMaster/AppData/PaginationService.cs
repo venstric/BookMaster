@@ -1,29 +1,70 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BookMaster.Model;
-using System.Collections.Generic;
+using System.Windows.Controls;
 
 namespace BookMaster.AppData
 {
-    public class PaginationService
+    public class PaginationService<T>
     {
-        private const int PAGE_SIZE = 50;
-        private readonly List<Book> _books;
+        private const int _pageSize;
+        private readonly List<T> _items;
         private int _currentPageIndex = 0;
         private int _currentPageNumber = 1;
 
-
-        public int BooksCount => _books.Count;
-        public int TotalPages => (BooksCount + PAGE_SIZE - 1) / PAGE_SIZE;
-        public List<Book> CurrentPageOfBooks => _books.Skip(_currentPageIndex * 
-            PAGE_SIZE).Take(PAGE_SIZE).ToList();
-
-        public PaginationService(List<Book> books)
+        public int CurrentPageNumber
         {
-            _books = books;
+            get
+            {
+                return _currentPageNumber = _currentPageIndex + 1;
+            }
+            set
+            {
+                _currentPageNumber = value - 1;
+                _currentPageNumber = value;
+            }
+        }
+
+        public int ItemsCount => _items.Count;
+        public int TotalPages => (ItemsCount + _pageSize - 1) / _pageSize;
+        public List<T> CurrentPageOfItems => _items.Skip(_currentPageIndex *
+            _pageSize).Take(_pageSize).ToList();
+
+        public PaginationService(List<T> items, int pageSize)
+        {
+            _items = items;
+            _pageSize = pageSize;
+        }
+
+        public List<T> PreviousPage()
+        {
+            if (_currentPageIndex > 0)
+            {
+                _currentPageIndex--;
+            }
+            return CurrentPageOfItems;
+        }
+
+        public List<T> NextPage()
+        {
+            if (_currentPageIndex < TotalPages - 1)
+            {
+                _currentPageIndex++;
+            }
+            return CurrentPageOfItems;
+        }
+
+        public void UpdatePaginationButtons(Button previonsBtn, Button nextBtn)
+        {
+            previonsBtn.IsEnabled = _currentPageIndex > 0;
+            nextBtn.IsEnabled = _currentPageIndex < TotalPages - 1;
+        }
+
+        public List<T> SetCurrentPage(int pageNumber)
+        {
+            CurrentPageNumber = pageNumber;
+            return CurrentPageOfItems;
         }
     }
 }
