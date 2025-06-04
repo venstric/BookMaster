@@ -65,9 +65,9 @@
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="5"/>
                 </Grid.RowDefinitions>
-                
 
-                <ListView Name="BookAuthorLv">
+
+                <ListView Name="BookAuthorLv" SelectionChanged="BookAuthorLv_SelectionChanged">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Название книги" DisplayMemberBinding="{Binding Title}"/>
@@ -75,7 +75,7 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <Grid Grid.Row="2">
+                <Grid Grid.Row="2" HorizontalAlignment="Left">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
@@ -84,23 +84,23 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Страница"/>
+                    <TextBlock Text="Страница" Margin="0 0 20 0"/> 
                     <Button Name="PreviousBookBtn" Grid.Column="2" Content="&lt;"
                             Click="PreviousBookBtn_Click"/>
                     <TextBox Name="CurrentPageTb" Grid.Column="4" 
-                             HorizontalAlignment="Center" 
-                             TextChanged="CurrentPageTb_TextChanged"/>
+                             HorizontalAlignment="Center" Margin="20"
+                             TextChanged="CurrentPageTb_TextChanged" Width="132"/>
                     <Button Name="NextBookBtn" Grid.Column="6" Content="&gt;"
                             Click="NextBookBtn_Click"/>
-                    <TextBlock Name="TotalPagesTbl" Grid.Column="8" Text= "{Binding TotalPages,StringFormat= из{0}}"/>
-                    <TextBlock Name="TotalBooksTbl" Grid.Column="12" Text= "{Binding TotalBooks,StringFormat= Книг найдино: {0}}"/>
+                    <TextBlock Name="TotalPagesTbl" Grid.Column="8" Text="{Binding TotalPages,StringFormat= из{0}}"/>
+                    <TextBlock Name="TotalBooksTbl" Grid.Column="12" Text="{Binding TotalBooks,StringFormat= Книг найдино: {0}}"/>
                 </Grid>
             </Grid>
             <!--#endregion-->
 
 
             <!--#region Разделитель-->
-            
+
             <!--#endregion-->
 
             <!--#region Подробная информация о книге-->
@@ -122,10 +122,10 @@
                     <RowDefinition Height="10"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="10"/>
-                  
-                    
-                    
-                    
+
+
+
+
                 </Grid.RowDefinitions>
                 <TextBlock FontSize="30" FontWeight="SemiBold" Text="Название"/>
                 <TextBlock Grid.Row="2" Text="Дополнительное название"/>
@@ -142,7 +142,7 @@
                 <TextBlock Grid.Row="12" Text="Жанры" FontWeight="SemiBold"/>
                 <TextBlock Grid.Row="14" Text="Жанры"/>
             </Grid>
-                <!--#endregion-->
+            <!--#endregion-->
 
 
 
